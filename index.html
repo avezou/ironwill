@@ -776,6 +776,205 @@
       </ul>
     </div>
   </div>
+
+  <hr class="divider">
+
+  <div class="section-header">
+    <h2>Tai Chi Exercise Library</h2>
+    <p>Six core movements you'll use throughout all 10 weeks — from warm-up to full form. Each has a short tutorial video. Watch before your first session, then use as reference.</p>
+  </div>
+
+  <div class="callout">
+    <strong>How to use these:</strong> Weeks 1–3 focus on moves 1–3 (foundation). Add moves 4–5 in weeks 4–7. Introduce move 6 in weeks 8–10. By week 10 you'll flow through all six as a continuous sequence.
+  </div>
+
+  <style>
+    .taichi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .taichi-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--army);
+    }
+    .taichi-card:nth-child(2) { border-top-color: var(--teal); }
+    .taichi-card:nth-child(3) { border-top-color: var(--amber); }
+    .taichi-card:nth-child(4) { border-top-color: var(--blue); }
+    .taichi-card:nth-child(5) { border-top-color: var(--red); }
+    .taichi-card:nth-child(6) { border-top-color: #7a3fa0; }
+    .taichi-video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #1a1a1a;
+      cursor: pointer;
+    }
+    .taichi-video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .taichi-thumb {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .taichi-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      background: rgba(58,74,44,0.92);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .taichi-play-btn::after {
+      content: '';
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 20px;
+      border-color: transparent transparent transparent #c8b87a;
+      margin-left: 4px;
+    }
+    .taichi-info {
+      padding: 16px 18px 18px;
+    }
+    .taichi-phase-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--mist);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-bottom: 6px;
+    }
+    .taichi-info h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .taichi-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .taichi-info .taichi-cue {
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--army);
+      font-weight: 500;
+      padding-left: 12px;
+      border-left: 3px solid var(--khaki);
+    }
+  </style>
+
+  <div class="taichi-grid">
+
+    <!-- 1: Commencement -->
+    <div class="taichi-card">
+      <div class="taichi-video-wrap" onclick="loadVideo(this, 'XGcLV-goAgI')">
+        <img class="taichi-thumb" src="https://img.youtube.com/vi/XGcLV-goAgI/hqdefault.jpg" alt="Commencement thumbnail">
+        <div class="taichi-play-btn"></div>
+      </div>
+      <div class="taichi-info">
+        <div class="taichi-phase-badge">Phase 1 · Weeks 1–3</div>
+        <h4>Commencement (Opening Form)</h4>
+        <p>The foundation of every tai chi session. Arms rise slowly as you inhale, lower as you exhale. Teaches the core principle: movement driven by breath, not muscle.</p>
+        <div class="taichi-cue">Mental cue: "Lift hands like balloons filling with air — let them float up, not push up."</div>
+      </div>
+    </div>
+
+    <!-- 2: Cloud Hands -->
+    <div class="taichi-card">
+      <div class="taichi-video-wrap" onclick="loadVideo(this, 'jGTFq5yaAwU')">
+        <img class="taichi-thumb" src="https://img.youtube.com/vi/jGTFq5yaAwU/hqdefault.jpg" alt="Cloud Hands thumbnail">
+        <div class="taichi-play-btn"></div>
+      </div>
+      <div class="taichi-info">
+        <div class="taichi-phase-badge">Phase 1 · Weeks 1–3</div>
+        <h4>Cloud Hands (Wave Hands)</h4>
+        <p>Continuous side-to-side weight shifting with sweeping arm arcs. One of the most-practiced moves — develops waist rotation, balance, and shoulder mobility. 2025 research confirms waist reduction benefits.</p>
+        <div class="taichi-cue">Mental cue: "Hands glide through thick fog — feel resistance in every inch of the arc."</div>
+      </div>
+    </div>
+
+    <!-- 3: Ward Off / Grasp Sparrow's Tail -->
+    <div class="taichi-card">
+      <div class="taichi-video-wrap" onclick="loadVideo(this, 'G0dVu5DGZCM')">
+        <img class="taichi-thumb" src="https://img.youtube.com/vi/G0dVu5DGZCM/hqdefault.jpg" alt="Ward Off thumbnail">
+        <div class="taichi-play-btn"></div>
+      </div>
+      <div class="taichi-info">
+        <div class="taichi-phase-badge">Phase 1 · Weeks 2–3</div>
+        <h4>Ward Off + Wave Hands</h4>
+        <p>Ward Off (Peng) is the primary defensive posture — one arm rises to deflect while the body rotates. Combined here with Wave Hands. Builds core rotation strength and hip stability.</p>
+        <div class="taichi-cue">Mental cue: "You're a rounded boulder — nothing sticks, everything deflects off your curve."</div>
+      </div>
+    </div>
+
+    <!-- 4: Repulse Monkey -->
+    <div class="taichi-card">
+      <div class="taichi-video-wrap" onclick="loadVideo(this, 'wZZGi5WnMVY')">
+        <img class="taichi-thumb" src="https://img.youtube.com/vi/wZZGi5WnMVY/hqdefault.jpg" alt="Repulse Monkey thumbnail">
+        <div class="taichi-play-btn"></div>
+      </div>
+      <div class="taichi-info">
+        <div class="taichi-phase-badge">Phase 2 · Weeks 4–7</div>
+        <h4>Repulse the Monkey</h4>
+        <p>Stepping backward while alternating arms in a push-pull rhythm. Excellent for hip flexor strength, proprioception, and the kind of backward movement almost no other exercise trains.</p>
+        <div class="taichi-cue">Mental cue: "Step back like you're gently backing away from a tiger — soft, deliberate, never rushed."</div>
+      </div>
+    </div>
+
+    <!-- 5: Brush Knee & Push -->
+    <div class="taichi-card">
+      <div class="taichi-video-wrap" onclick="loadVideo(this, 'eCinwN-AVqQ')">
+        <img class="taichi-thumb" src="https://img.youtube.com/vi/eCinwN-AVqQ/hqdefault.jpg" alt="Brush Knee thumbnail">
+        <div class="taichi-play-btn"></div>
+      </div>
+      <div class="taichi-info">
+        <div class="taichi-phase-badge">Phase 2 · Weeks 5–7</div>
+        <h4>Brush Knee & Push</h4>
+        <p>Stepping forward with one hand sweeping low across the knee while the other pushes forward. Trains opposite-arm/leg coordination, builds the bow stance (like a deep lunge hold), and strengthens the posterior chain.</p>
+        <div class="taichi-cue">Mental cue: "One hand clears the path, the other opens the door — both in perfect harmony."</div>
+      </div>
+    </div>
+
+    <!-- 6: Golden Rooster -->
+    <div class="taichi-card">
+      <div class="taichi-video-wrap" onclick="loadVideo(this, 'Xqya1TUm7gY')">
+        <img class="taichi-thumb" src="https://img.youtube.com/vi/Xqya1TUm7gY/hqdefault.jpg" alt="Golden Rooster thumbnail">
+        <div class="taichi-play-btn"></div>
+      </div>
+      <div class="taichi-info">
+        <div class="taichi-phase-badge">Phase 3 · Weeks 8–10</div>
+        <h4>Golden Rooster on One Leg</h4>
+        <p>Single-leg balance with knee raised and arm lifted overhead — the signature balance move of tai chi. Dramatically improves proprioception, ankle stability, and hip flexor strength. Fall-prevention research is extensive for this move.</p>
+        <div class="taichi-cue">Mental cue: "Root one foot into the earth like a tree. The raised leg is a branch — light, not effortful."</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  function loadVideo(wrapper, videoId) {
+    wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  }
+  </script>
+
 </div>
 
 <!-- NUTRITION TAB -->
