@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10-Week Transformation Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3a4a2c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Iron Will">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+  :root {
+    --army: #3a4a2c;
+    --army-light: #5a6e44;
+    --khaki: #c8b87a;
+    --khaki-light: #e8d8a0;
+    --slate: #2c3440;
+    --steel: #4a5568;
+    --mist: #f4f1eb;
+    --white: #ffffff;
+    --red: #c0392b;
+    --teal: #1a7a6e;
+    --amber: #d4870a;
+    --blue: #1a5a8a;
+    --text: #1c2026;
+    --text-muted: #5a6370;
+    --border: rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--mist);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4, .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.04em;
+  }
+  .hero {
+    background: var(--army);
+    color: white;
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.03) 8px,
+      rgba(255,255,255,0.03) 16px
+    );
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--khaki);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: 56px;
+    line-height: 0.95;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--khaki); }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    border-left: 3px solid var(--khaki);
+    padding-left: 12px;
+  }
+  .hero-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--khaki-light);
+    line-height: 1;
+  }
+  .hero-stat .lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .tabs {
+    background: var(--slate);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 14px 22px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.85); }
+  .tab-btn.active { color: var(--khaki); border-bottom-color: var(--khaki); }
+  .tab-content { display: none; padding: 36px 40px 48px; }
+  .tab-content.active { display: block; }
+  .section-header {
+    margin-bottom: 28px;
+  }
+  .section-header h2 {
+    font-size: 38px;
+    color: var(--army);
+    line-height: 1;
+  }
+  .section-header p {
+    color: var(--text-muted);
+    margin-top: 6px;
+    max-width: 660px;
+  }
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .phase-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border-top: 4px solid var(--army);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .phase-card.phase2 { border-top-color: var(--teal); }
+  .phase-card.phase3 { border-top-color: var(--red); }
+  .phase-card .phase-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .phase-card h3 {
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .phase-card p { font-size: 13px; color: var(--text-muted); }
+  .week-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
+    font-size: 13px;
+  }
+  .week-table th {
+    background: var(--army);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+  }
+  .week-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .week-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+  .week-table tr:hover td { background: rgba(58,74,44,0.05); }
+  .day-label {
+    font-weight: 600;
+    color: var(--army);
+    white-space: nowrap;
+  }
+  .rest-day { color: var(--text-muted); font-style: italic; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-right: 4px;
+  }
+  .tag-strength { background: #dff0d8; color: #2e6b1e; }
+  .tag-cardio { background: #d0e8f8; color: #1a4d78; }
+  .tag-tai { background: #f0e8d8; color: #7a4e18; }
+  .tag-active { background: #f0f0f0; color: #555; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+  @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
+  .info-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .info-card h3 {
+    font-size: 20px;
+    color: var(--army);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .info-card h3 .icon {
+    width: 28px; height: 28px;
+    background: var(--army);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    color: var(--khaki-light);
+    flex-shrink: 0;
+  }
+  .info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .info-list li {
+    padding-left: 16px;
+    position: relative;
+    font-size: 13.5px;
+    color: var(--text);
+  }
+  .info-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--khaki);
+    font-size: 11px;
+    top: 3px;
+  }
+  .macro-bar {
+    margin-bottom: 20px;
+  }
+  .macro-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  .macro-track {
+    height: 10px;
+    background: #e8e8e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .macro-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.6s ease;
+  }
+  .fill-protein { background: var(--red); }
+  .fill-carbs { background: var(--blue); }
+  .fill-fats { background: var(--amber); }
+  .meal-block {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border-left: 4px solid var(--army-light);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .meal-block .meal-time {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+  .meal-block h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--army);
+    margin-bottom: 5px;
+  }
+  .meal-block p { font-size: 13px; color: var(--text-muted); }
+  .sleep-card {
+    background: var(--slate);
+    color: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .sleep-card h3 {
+    font-size: 24px;
+    color: var(--khaki-light);
+    margin-bottom: 12px;
+  }
+  .sleep-card p { color: rgba(255,255,255,0.75); font-size: 13.5px; }
+  .sleep-list {
+    list-style: none;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sleep-list li {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.8);
+    padding-left: 18px;
+    position: relative;
+  }
+  .sleep-list li::before {
+    content: '◆';
+    position: absolute; left: 0;
+    color: var(--khaki);
+    font-size: 8px;
+    top: 5px;
+  }
+  .progress-bar-container {
+    margin-bottom: 24px;
+  }
+  .progress-week {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .progress-week-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    min-width: 56px;
+  }
+  .progress-track {
+    flex: 1;
+    height: 8px;
+    background: #e8e8e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--army);
+    transition: width 0.8s ease;
+  }
+  .progress-val {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    min-width: 50px;
+    text-align: right;
+  }
+  .callout {
+    background: var(--khaki-light);
+    border-left: 4px solid var(--khaki);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 13.5px;
+  }
+  .callout strong { color: var(--army); }
+  .exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .exercise-item {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .exercise-item .ex-name {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .exercise-item .ex-detail {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .water-tracker {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+  }
+  .water-tracker h3 { font-size: 20px; color: var(--blue); margin-bottom: 12px; }
+  .water-cups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .cup {
+    width: 38px; height: 38px;
+    border-radius: 6px;
+    border: 2px solid #b0d0e8;
+    background: white;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    transition: all 0.15s;
+  }
+  .cup.filled { background: #1a5a8a; border-color: #1a5a8a; }
+  .cup.filled::after { content: '💧'; }
+  .cup:not(.filled)::after { content: '○'; color: #b0d0e8; font-size: 14px; }
+  .water-status { font-size: 13px; color: var(--text-muted); }
+  .tip-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+  .tip-num {
+    background: var(--army);
+    color: var(--khaki-light);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 680px) { .comparison-row { grid-template-columns: 1fr; } }
+  .comp-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .comp-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .comp-card.military h4 { color: var(--army); }
+  .comp-card.taichi h4 { color: var(--amber); }
+  .comp-card.hybrid h4 { color: var(--teal); }
+  .rating-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 6px;
+    align-items: center;
+  }
+  .rating-label { color: var(--text-muted); }
+  .dots {
+    display: flex; gap: 3px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #e0e0d8;
+  }
+  .dot.on { background: var(--army); }
+  .dot.on.amber { background: var(--amber); }
+  .dot.on.teal { background: var(--teal); }
+  .supplement-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .supp-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .supp-name { font-weight: 500; font-size: 13.5px; }
+  .supp-detail { font-size: 12px; color: var(--text-muted); }
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Personalized 10-Week Transformation</div>
+  <h1>OPERATION<br><span>IRON WILL</span></h1>
+  <p style="color: rgba(255,255,255,0.7); margin-top: 12px; max-width: 520px; font-size: 14px;">A science-backed hybrid program for a 45-year-old male — combining military calisthenics, tai chi, and functional strength training to drop 21 lbs and build serious muscle.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">201 → 180</div><div class="lbl">Target weight (lbs)</div></div>
+    <div class="hero-stat"><div class="num">10</div><div class="lbl">Weeks</div></div>
+    <div class="hero-stat"><div class="num">6</div><div class="lbl">Days / week active</div></div>
+    <div class="hero-stat"><div class="num">~2,100</div><div class="lbl">Daily calories</div></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab('workout')">Workout Plan</button>
+  <button class="tab-btn" onclick="showTab('nutrition')">Nutrition</button>
+  <button class="tab-btn" onclick="showTab('sleep')">Sleep & Recovery</button>
+  <button class="tab-btn" onclick="showTab('hydration')">Hydration</button>
+  <button class="tab-btn" onclick="showTab('systems')">Systems Compared</button>
+</div>
+
+<!-- OVERVIEW TAB -->
+<div id="tab-overview" class="tab-content active">
+  <div class="section-header">
+    <h2>Your 10-Week Roadmap</h2>
+    <p>Three progressive phases designed to strip fat, build functional muscle, and build lasting habits — no gym membership required for most workouts.</p>
+  </div>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <div class="phase-label">Phase 1 · Weeks 1–3</div>
+      <h3>Build the Base</h3>
+      <p>Foundation movements, mobility, body adaptation. Lower intensity, higher frequency. Learn the patterns.</p>
+    </div>
+    <div class="phase-card phase2">
+      <div class="phase-label">Phase 2 · Weeks 4–7</div>
+      <h3>Ignite the Engine</h3>
+      <p>Volume and intensity increase. Hybrid strength-cardio circuits. Fat loss accelerates. Muscle starts showing.</p>
+    </div>
+    <div class="phase-card phase3">
+      <div class="phase-label">Phase 3 · Weeks 8–10</div>
+      <h3>Peak Performance</h3>
+      <p>Max intensity. Advanced progressions. Deload in week 10 to cement gains and prepare for next cycle.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>The strategy:</strong> Military calisthenics builds raw functional strength and burns fat. Tai chi (3× weekly, mornings) reduces cortisol, improves sleep quality, builds lower-body lean mass, and reduces waist circumference — all backed by a 2025 <em>Scientific Reports</em> study showing a 3.38 cm waist reduction and 0.87 kg lean mass gain in 12 weeks at your BMI level.
+  </div>
+
+  <div class="section-header">
+    <h2 style="margin-top: 8px;">Projected Weight Loss Curve</h2>
+    <p>At a 500 cal/day deficit with active training, expect ~1–1.5 lbs/week fat loss plus muscle gain masking some scale movement.</p>
+  </div>
+
+  <div class="progress-bar-container" id="progressBars"></div>
+
+  <div class="two-col">
+    <div class="info-card">
+      <h3><span class="icon">📊</span> Your Numbers</h3>
+      <ul class="info-list">
+        <li>Current BMI: 28.0 (overweight range)</li>
+        <li>Est. TDEE at moderate activity: ~2,650 cal/day</li>
+        <li>Target intake: ~2,100 cal/day (550 deficit)</li>
+        <li>Goal: ~1.25 lbs/week fat loss over 10 weeks</li>
+        <li>Protein target: 160–180g/day (preserves muscle)</li>
+        <li>Coffee: fine, but limit to before 1pm (sleep impact)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="icon">⚠️</span> Key Rules</h3>
+      <ul class="info-list">
+        <li>Always use your CPAP — it remains your primary OSA treatment</li>
+        <li>Consult your doctor before starting (CPAP alternatives discussed in Sleep tab)</li>
+        <li>Never skip the 5-min tai chi warm-up on strength days</li>
+        <li>Sleep 7–8 hrs is a training variable, not a bonus</li>
+        <li>Progressive overload: add reps/sets, not random variety</li>
+        <li>Deload in week 10 — mandatory, not optional</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- WORKOUT TAB -->
+<div id="tab-workout" class="tab-content">
+  <div class="section-header">
+    <h2>Weekly Workout Schedule</h2>
+    <p>6 active days, 1 full rest day. Each day is labeled by type — rotate through 3 phases as you progress. All bodyweight unless noted.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Warm-up rule (every session):</strong> 5 min walking + 5 min tai chi slow-form movements (hip circles, shoulder rolls, slow squats) before every workout. This activates joints, lowers injury risk, and prepares the nervous system.
+  </div>
+
+  <h3 style="font-size: 22px; color: var(--army); margin-bottom: 14px;">Phase 1 — Weeks 1–3 (Build the Base)</h3>
+  <table class="week-table">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Session</th>
+        <th>Exercises</th>
+        <th>Volume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="day-label">Monday</td>
+        <td><span class="tag tag-strength">Strength</span> Upper Push</td>
+        <td>Push-ups, Diamond push-ups, Pike push-ups, Plank hold</td>
+        <td>3 sets × 10–15 reps; 60s rest</td>
+      </tr>
+      <tr>
+        <td class="day-label">Tuesday</td>
+        <td><span class="tag tag-tai">Tai Chi</span> + <span class="tag tag-cardio">Cardio</span></td>
+        <td>20 min Yang-style tai chi form + 20 min brisk walk/jog</td>
+        <td>Conversational pace; HR ~120–130</td>
+      </tr>
+      <tr>
+        <td class="day-label">Wednesday</td>
+        <td><span class="tag tag-strength">Strength</span> Lower Body</td>
+        <td>Bodyweight squats, Reverse lunges, Glute bridges, Calf raises, Wall sit</td>
+        <td>3 sets × 12–15 reps; 60s rest</td>
+      </tr>
+      <tr>
+        <td class="day-label">Thursday</td>
+        <td><span class="tag tag-tai">Tai Chi</span> + Core</td>
+        <td>20 min tai chi + Flutter kicks, Leg raises, Bicycle crunches, Dead bug</td>
+        <td>Tai chi 20 min; core 3×15</td>
+      </tr>
+      <tr>
+        <td class="day-label">Friday</td>
+        <td><span class="tag tag-strength">Strength</span> Upper Pull</td>
+        <td>Pull-ups (or negatives), Inverted rows (under table), Chin-ups, Band pull-aparts</td>
+        <td>3 sets; pull-ups to failure; rows ×12</td>
+      </tr>
+      <tr>
+        <td class="day-label">Saturday</td>
+        <td><span class="tag tag-cardio">Cardio</span> Long Effort</td>
+        <td>45 min steady-state walk/jog or rucking (20 lb backpack)</td>
+        <td>Zone 2 HR target: 120–135 bpm</td>
+      </tr>
+      <tr>
+        <td class="day-label">Sunday</td>
+        <td class="rest-day">Full Rest + Stretch</td>
+        <td>Light walking only, 10 min deep stretch or yoga flow</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size: 22px; color: var(--teal); margin-bottom: 14px;">Phase 2 — Weeks 4–7 (Ignite the Engine)</h3>
+  <table class="week-table">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Session</th>
+        <th>Exercises</th>
+        <th>Volume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="day-label">Monday</td>
+        <td><span class="tag tag-strength">Strength</span> Military Circuit A</td>
+        <td>Push-ups → Squats → Sit-ups → Pull-ups → Burpees (circuit, minimal rest)</td>
+        <td>4 rounds × 15/20/20/8/10; 45s rest between rounds</td>
+      </tr>
+      <tr>
+        <td class="day-label">Tuesday</td>
+        <td><span class="tag tag-tai">Tai Chi</span> + Intervals</td>
+        <td>20 min tai chi form + 6×30s sprint intervals (walk 90s between)</td>
+        <td>Total ~40 min</td>
+      </tr>
+      <tr>
+        <td class="day-label">Wednesday</td>
+        <td><span class="tag tag-strength">Strength</span> Military Circuit B</td>
+        <td>Dips (on chair), Jump squats, Plank variations, Commando pull-ups, Mountain climbers</td>
+        <td>4 rounds × 12–15; 45s rest</td>
+      </tr>
+      <tr>
+        <td class="day-label">Thursday</td>
+        <td><span class="tag tag-tai">Tai Chi</span> + Core</td>
+        <td>25 min tai chi + Advanced core: dragon flags (progression), hollow holds, L-sit holds</td>
+        <td>Core: 4×10–15; 45s rest</td>
+      </tr>
+      <tr>
+        <td class="day-label">Friday</td>
+        <td><span class="tag tag-strength">Strength</span> Full Body Power</td>
+        <td>Explosive push-ups, Jump squats, Broad jumps, Pull-ups, Hand-release push-ups</td>
+        <td>5 rounds × 10; 60s rest</td>
+      </tr>
+      <tr>
+        <td class="day-label">Saturday</td>
+        <td><span class="tag tag-cardio">Cardio</span> Rucking / Run</td>
+        <td>45–60 min rucking (25 lb) or 3–4 mile run</td>
+        <td>Steady state; Saturday distance increases 0.5 mi each week</td>
+      </tr>
+      <tr>
+        <td class="day-label">Sunday</td>
+        <td class="rest-day">Active Recovery</td>
+        <td>20 min tai chi + mobility work (hip flexors, thoracic spine)</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size: 22px; color: var(--red); margin-bottom: 14px;">Phase 3 — Weeks 8–10 (Peak + Deload)</h3>
+  <table class="week-table">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Session</th>
+        <th>Exercises</th>
+        <th>Volume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="day-label">Mon/Wed/Fri</td>
+        <td><span class="tag tag-strength">Strength</span> Advanced Circuits</td>
+        <td>Wks 8–9: One-arm push-up progressions, Pistol squat progressions, Muscle-up progressions, Nordic curls</td>
+        <td>5 rounds; leave 2 reps in tank; 30s rest wks 8–9; Wk 10: drop to 3 rounds (deload)</td>
+      </tr>
+      <tr>
+        <td class="day-label">Tue/Thu</td>
+        <td><span class="tag tag-tai">Tai Chi</span> + Light Cardio</td>
+        <td>30 min tai chi (now full form) + 25 min easy jog</td>
+        <td>Conversational pace</td>
+      </tr>
+      <tr>
+        <td class="day-label">Saturday</td>
+        <td><span class="tag tag-cardio">Cardio</span> Long Effort</td>
+        <td>Wks 8–9: 5-mile ruck (25 lb). Wk 10: 3-mile easy walk only (deload)</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="day-label">Sunday</td>
+        <td class="rest-day">Full Rest</td>
+        <td>Light walking, stretching</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="two-col">
+    <div class="info-card">
+      <h3><span class="icon">💪</span> Push Progression</h3>
+      <ul class="info-list">
+        <li>Wk 1: Standard push-ups</li>
+        <li>Wk 3: Diamond + wide variation</li>
+        <li>Wk 5: Decline push-ups (feet elevated)</li>
+        <li>Wk 7: Clap push-ups / plyometric</li>
+        <li>Wk 9: One-arm negatives</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="icon">🦵</span> Pull/Leg Progression</h3>
+      <ul class="info-list">
+        <li>Wk 1: Negative pull-ups, inverted rows</li>
+        <li>Wk 3: Full pull-ups × 5–8</li>
+        <li>Wk 5: Chin-ups, commando pull-ups</li>
+        <li>Wk 7: L-sit pull-ups</li>
+        <li>Wk 9: Pistol squat progressions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- NUTRITION TAB -->
+<div id="tab-nutrition" class="tab-content">
+  <div class="section-header">
+    <h2>Nutrition Plan</h2>
+    <p>~2,100 calories/day with high protein to preserve and build muscle while losing fat. No tofu, tempeh, goat, lamb, or deer as requested.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Body recomposition goal:</strong> Eating ~550 cal below maintenance while hitting 160–180g protein daily signals your body to burn fat while holding or building muscle — especially effective for men in their 40s returning to structured training.
+  </div>
+
+  <h3 style="font-size: 22px; color: var(--army); margin-bottom: 16px;">Daily Macros</h3>
+
+  <div class="macro-bar">
+    <div class="macro-bar-label"><span>Protein</span><span style="color: var(--red);">160–180g · ~30% of calories</span></div>
+    <div class="macro-track"><div class="macro-fill fill-protein" style="width: 30%;"></div></div>
+  </div>
+  <div class="macro-bar">
+    <div class="macro-bar-label"><span>Carbohydrates</span><span style="color: var(--blue);">210–230g · ~43% of calories</span></div>
+    <div class="macro-track"><div class="macro-fill fill-carbs" style="width: 43%;"></div></div>
+  </div>
+  <div class="macro-bar">
+    <div class="macro-bar-label"><span>Healthy Fats</span><span style="color: var(--amber);">60–70g · ~27% of calories</span></div>
+    <div class="macro-track"><div class="macro-fill fill-fats" style="width: 27%;"></div></div>
+  </div>
+
+  <hr class="divider">
+
+  <h3 style="font-size: 22px; color: var(--army); margin-bottom: 16px;">Sample Day of Eating</h3>
+
+  <div class="meal-block">
+    <div class="meal-time">6:30 am — Before Tai Chi / Workout</div>
+    <h4>Pre-Workout Fuel</h4>
+    <p>1 banana + 1 tbsp almond butter + black coffee (your coffee, kept!) — ~200 cal, 5g protein</p>
+  </div>
+
+  <div class="meal-block" style="border-left-color: var(--teal);">
+    <div class="meal-time">8:30 am — Breakfast</div>
+    <h4>Protein Power Breakfast</h4>
+    <p>4 eggs scrambled with spinach + 2 turkey sausage links + ½ cup oatmeal with berries — ~520 cal, 40g protein</p>
+  </div>
+
+  <div class="meal-block" style="border-left-color: var(--blue);">
+    <div class="meal-time">12:00 pm — Lunch</div>
+    <h4>Lean Protein + Complex Carbs</h4>
+    <p>6 oz grilled chicken breast + 1 cup brown rice + large mixed greens salad + olive oil/lemon dressing + cucumber + cherry tomatoes — ~580 cal, 48g protein</p>
+  </div>
+
+  <div class="meal-block" style="border-left-color: var(--amber);">
+    <div class="meal-time">3:30 pm — Snack</div>
+    <h4>Afternoon Recovery Snack</h4>
+    <p>1 cup Greek yogurt (plain, 2%) + handful of walnuts + drizzle of honey — ~280 cal, 20g protein</p>
+  </div>
+
+  <div class="meal-block" style="border-left-color: var(--red);">
+    <div class="meal-time">7:00 pm — Dinner</div>
+    <h4>Hearty Evening Meal</h4>
+    <p>6 oz salmon (or lean beef, tuna, shrimp, pork tenderloin — rotate) + 2 cups roasted vegetables (broccoli, peppers, zucchini) + ½ sweet potato — ~520 cal, 42g protein</p>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">9:00 pm — Optional Evening (if still hungry)</div>
+    <h4>Casein Snack (helps overnight muscle repair)</h4>
+    <p>1 cup cottage cheese + sliced strawberries — ~160 cal, 25g protein. Skip if not hungry.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="two-col">
+    <div class="info-card">
+      <h3><span class="icon">✅</span> Best Protein Sources</h3>
+      <ul class="info-list">
+        <li>Chicken breast / thighs (skinless)</li>
+        <li>Salmon, tuna, tilapia, shrimp, cod</li>
+        <li>Lean beef (90%+), pork tenderloin</li>
+        <li>Eggs and egg whites</li>
+        <li>Greek yogurt, cottage cheese, string cheese</li>
+        <li>Turkey (ground, breast, sausage links)</li>
+        <li>Canned tuna/salmon (budget-friendly)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="icon">🥗</span> Smart Carbs + Fats</h3>
+      <ul class="info-list">
+        <li>Oats, brown rice, sweet potato, quinoa</li>
+        <li>All vegetables (eat freely — volume/fiber)</li>
+        <li>Fruit (1–2 servings/day; berries are best)</li>
+        <li>Avocado (½ daily for healthy fats)</li>
+        <li>Olive oil, nuts (almonds, walnuts)</li>
+        <li>Whole grain bread (1–2 slices/day)</li>
+        <li>Beans, lentils (also protein!)</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h3 style="font-size: 22px; color: var(--army); margin-bottom: 14px;">Optional Supplements</h3>
+  <div class="supplement-row">
+    <div class="supp-icon" style="background:#e8f4e8;">💊</div>
+    <div><div class="supp-name">Creatine Monohydrate — 5g/day</div><div class="supp-detail">Most evidence-backed supplement for muscle strength and lean mass gains. Mix in water or coffee. No loading phase needed.</div></div>
+  </div>
+  <div class="supplement-row">
+    <div class="supp-icon" style="background:#e8e8f8;">🥛</div>
+    <div><div class="supp-name">Whey Protein — 1 scoop post-workout (if needed)</div><div class="supp-detail">Only if you're struggling to hit 160g protein from food. Not mandatory.</div></div>
+  </div>
+  <div class="supplement-row">
+    <div class="supp-icon" style="background:#fff0e0;">☀️</div>
+    <div><div class="supp-name">Vitamin D3 — 2,000–4,000 IU/day</div><div class="supp-detail">Most adults are deficient. Supports testosterone, muscle function, and sleep quality. Take with breakfast.</div></div>
+  </div>
+  <div class="supplement-row">
+    <div class="supp-icon" style="background:#f0f8e8;">🌿</div>
+    <div><div class="supp-name">Magnesium Glycinate — 300–400 mg before bed</div><div class="supp-detail">Improves sleep quality, reduces muscle cramps, supports recovery. Particularly helpful for sleep apnea sufferers.</div></div>
+  </div>
+</div>
+
+<!-- SLEEP TAB -->
+<div id="tab-sleep" class="tab-content">
+  <div class="section-header">
+    <h2>Sleep & Recovery</h2>
+    <p>Sleep is when muscle is built and fat hormones reset. With sleep apnea, optimizing this is as important as your workout.</p>
+  </div>
+
+  <div class="sleep-card">
+    <h3>CPAP — Keep Using It</h3>
+    <p>Your CPAP remains your primary, most effective treatment. Everything below is complementary — not a replacement. Always coordinate changes with your sleep doctor.</p>
+    <ul class="sleep-list">
+      <li>CPAP adherence directly improves testosterone, which directly supports fat loss and muscle gain</li>
+      <li>Poor CPAP compliance leads to elevated cortisol, increased appetite, and blunted muscle recovery</li>
+      <li>Better-fitting masks (full face vs. nasal) dramatically improve compliance and sleep time</li>
+      <li>Auto-adjusting CPAP (APAP) or BiPAP may feel more natural if standard CPAP pressure is uncomfortable</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <div class="info-card">
+      <h3><span class="icon">💬</span> Myofunctional Therapy</h3>
+      <p style="font-size: 13.5px; margin-bottom: 10px;">Tongue and throat exercises that physically strengthen upper airway muscles — shown in multiple 2024–2025 meta-analyses to reduce OSA severity (AHI) by <strong>30–50% in mild-moderate cases</strong> and reduce daytime sleepiness.</p>
+      <ul class="info-list">
+        <li>Tongue press: press tongue firmly to roof of mouth, hold 3 sec × 10 reps — 3× daily</li>
+        <li>Tongue slide: slide tongue back along palate to soft palate × 20 reps</li>
+        <li>Cheek puffer: puff cheeks, hold 5 sec × 10 reps</li>
+        <li>Soft palate lifts: say "ahh" while looking in a mirror, lifting soft palate × 20</li>
+        <li>Singing or playing a wind instrument: also proven to tone airway muscles</li>
+        <li>Total time: 10 min/day. Takes 6–8 weeks for effects.</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="icon">🛏️</span> Positional Therapy</h3>
+      <p style="font-size: 13.5px; margin-bottom: 10px;">Many people with OSA have 50–75% fewer apnea events when not sleeping on their back. This is the simplest, cheapest intervention.</p>
+      <ul class="info-list">
+        <li>Tennis ball in a sock sewn to back of sleep shirt (old trick, still works)</li>
+        <li>Positional pillow (wedge or cervical) keeps you on your side</li>
+        <li>NightShift or similar positional device vibrates when you roll to your back</li>
+        <li>Side sleeping also reduces GERD, another common sleep disruptor in men 40s–50s</li>
+        <li>Elevate head of bed 4–6 inches using bed risers under headboard feet</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top: 4px;">
+    <div class="info-card">
+      <h3><span class="icon">🦷</span> Oral Appliance Therapy (MAD)</h3>
+      <p style="font-size: 13.5px; margin-bottom: 10px;">Mandibular advancement devices (MADs) are the top evidence-based CPAP alternative for mild-to-moderate OSA. Custom-fitted by a dentist, they advance the jaw slightly to open the airway.</p>
+      <ul class="info-list">
+        <li>As effective as CPAP in some mild-moderate OSA cases</li>
+        <li>Far more comfortable for many — higher compliance rates</li>
+        <li>Must be prescribed and fitted by a dentist working with a sleep specialist</li>
+        <li>Consider if CPAP mask discomfort is limiting your sleep time</li>
+        <li>Can be combined with CPAP on alternating nights or for travel</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="icon">🌙</span> Sleep Hygiene Protocol</h3>
+      <p style="font-size: 13.5px; margin-bottom: 10px;">For a 45-year-old male, these changes can add 45–90 minutes of quality sleep per night:</p>
+      <ul class="info-list">
+        <li>Cut coffee after 1pm — caffeine half-life is ~5 hrs; it fragments deep sleep</li>
+        <li>Room temp: 65–68°F — the single most evidence-backed sleep hygiene factor</li>
+        <li>No screens 45 min before bed (or use blue-light glasses starting at 9pm)</li>
+        <li>Consistent wake time — even weekends, ±30 min max</li>
+        <li>Tai chi in the morning reduces evening cortisol (proven effect)</li>
+        <li>Magnesium glycinate 300 mg at bedtime — shown to improve sleep quality</li>
+        <li>Weight loss from this program: losing 10% of body weight reduces OSA severity 20–30%</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 8px;">
+    <strong>Long-term note:</strong> Losing your target 21 lbs will by itself meaningfully reduce your OSA severity. As your airway tissue decreases with body fat, many CPAP users find their required pressure drops or in mild cases, apnea resolves. Ask your sleep doctor for a repeat sleep study after completing this 10-week program.
+  </div>
+</div>
+
+<!-- HYDRATION TAB -->
+<div id="tab-hydration" class="tab-content">
+  <div class="section-header">
+    <h2>Hydration Strategy</h2>
+    <p>As a coffee drinker, you're likely running a daily deficit. Target: 120–125 oz (about 15 cups) of water daily, including water-rich foods.</p>
+  </div>
+
+  <div class="water-tracker">
+    <h3>Daily Water Tracker</h3>
+    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Tap cups to track your intake. Goal: 10 cups minimum of plain water (rest from food + coffee).</p>
+    <div class="water-cups" id="cups"></div>
+    <div class="water-status" id="water-status">0 of 10 cups today</div>
+  </div>
+
+  <h3 style="font-size: 22px; color: var(--army); margin-bottom: 16px;">The Coffee-to-Water System</h3>
+
+  <div class="tip-row"><div class="tip-num">1</div><div><strong>The 1-for-1 rule:</strong> For every cup of coffee, drink one cup of water first. Coffee is a mild diuretic — this keeps you from starting in a deficit.</div></div>
+  <div class="tip-row"><div class="tip-num">2</div><div><strong>Morning glass:</strong> Keep a full 16 oz glass (or stainless bottle) on your bedside table. First thing you do every morning, before your feet hit the floor.</div></div>
+  <div class="tip-row"><div class="tip-num">3</div><div><strong>Anchor to existing habits:</strong> Water when you wake up, water before each meal (also reduces appetite by ~15%), water after each workout, water before bed. 5 habit anchors = 5 cups without thinking.</div></div>
+  <div class="tip-row"><div class="tip-num">4</div><div><strong>Flavor your water:</strong> Slice of lemon + cucumber + fresh mint in a pitcher in the fridge. Makes water feel like a treat, not a chore. Stays fresh 24 hrs.</div></div>
+  <div class="tip-row"><div class="tip-num">5</div><div><strong>Sparkling water substitution:</strong> Swap one or two coffees per day for unsweetened sparkling water (Bubly, LaCroix, Topo Chico). The carbonation satisfies the "I want a drink" urge without caffeine.</div></div>
+  <div class="tip-row"><div class="tip-num">6</div><div><strong>Get a 64 oz bottle:</strong> Fill it once in the morning. If it's empty by 5pm, you're on track. Stainless steel keeps water cold all day — better than plastic.</div></div>
+  <div class="tip-row"><div class="tip-num">7</div><div><strong>Eat your water:</strong> ~20% of hydration comes from food. Add cucumber, watermelon, celery, strawberries, and lettuce to daily meals — all 90%+ water content.</div></div>
+  <div class="tip-row"><div class="tip-num">8</div><div><strong>Urine color check:</strong> Pale yellow = well hydrated. Dark yellow = drink now. This is the fastest biofeedback you have. Check every time you use the bathroom the first week until it becomes instinct.</div></div>
+
+  <div class="callout" style="margin-top: 20px;">
+    <strong>Hydration and fat loss:</strong> Even mild dehydration (1–2%) tanks workout performance and suppresses fat metabolism. Drinking water before meals reliably reduces calorie intake by 13% in studies. Hydration also dramatically improves how you feel waking up with sleep apnea — reducing dry mouth and grogginess.
+  </div>
+</div>
+
+<!-- SYSTEMS COMPARED TAB -->
+<div id="tab-systems" class="tab-content">
+  <div class="section-header">
+    <h2>Training Systems Compared</h2>
+    <p>Why this program uses a hybrid approach — and what each component brings to your specific goals.</p>
+  </div>
+
+  <div class="comparison-row">
+    <div class="comp-card military">
+      <h4>Military Calisthenics</h4>
+      <div class="rating-row"><span class="rating-label">Strength</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Fat burning</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Joint safety</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Equipment</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Recovery cost</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 12px;">Push-ups, pull-ups, squats, dips — compound multi-joint movements proven to build lean, functional muscle. Elite military personnel maintain exceptional physiques on calisthenics alone.</p>
+    </div>
+    <div class="comp-card taichi">
+      <h4>Tai Chi</h4>
+      <div class="rating-row"><span class="rating-label">Strength</span><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Fat burning</span><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Joint safety</span><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Cortisol reduction</span><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Sleep quality</span><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></div>
+      <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 12px;">2025 research shows 12 weeks reduces waist by 3.38cm and adds lean mass. Tai chi practiced regularly also demonstrably improves sleep quality — a major win for sleep apnea management.</p>
+    </div>
+    <div class="comp-card hybrid">
+      <h4>This Hybrid Plan</h4>
+      <div class="rating-row"><span class="rating-label">Strength</span><div class="dots"><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Fat burning</span><div class="dots"><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Sleep quality</span><div class="dots"><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Sustainability</span><div class="dots"><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div></div></div>
+      <div class="rating-row"><span class="rating-label">Recovery cost</span><div class="dots"><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot on teal"></div><div class="dot"></div></div></div>
+      <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 12px;">The combination gets you the best of both worlds: military calisthenics drives fat loss and strength; tai chi handles recovery, sleep, and cortisol — the silent killers of fat loss after 40.</p>
+    </div>
+  </div>
+
+  <h3 style="font-size: 22px; color: var(--army); margin-bottom: 16px;">Other Systems Considered</h3>
+
+  <table class="week-table">
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>Best For</th>
+        <th>Why Not Primary Here</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Heavy Barbell Lifting</strong></td>
+        <td>Maximum hypertrophy, powerlifting</td>
+        <td>Higher injury risk at 45, equipment cost, less functional carry-over than calisthenics</td>
+      </tr>
+      <tr>
+        <td><strong>HIIT (pure)</strong></td>
+        <td>Rapid fat loss</td>
+        <td>High CNS fatigue, hard on joints, not recoverable 6×/week, poor for sleep apnea recovery</td>
+      </tr>
+      <tr>
+        <td><strong>Yoga</strong></td>
+        <td>Flexibility, stress</td>
+        <td>Insufficient resistance for muscle building; incorporated as mobility work on rest days</td>
+      </tr>
+      <tr>
+        <td><strong>CrossFit</strong></td>
+        <td>General physical preparedness</td>
+        <td>Higher injury rate in 40s+, requires gym, expensive, recovery cost too high</td>
+      </tr>
+      <tr>
+        <td><strong>Running only</strong></td>
+        <td>Cardio, endurance</td>
+        <td>Catabolic for muscle at high volume; doesn't build strength; incorporated at moderate dose</td>
+      </tr>
+      <tr>
+        <td><strong>Rucking</strong></td>
+        <td>Low-impact fat burn + strength</td>
+        <td>Excellent — included as Saturday cardio option, especially weeks 4–9</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Why tai chi is non-negotiable for you:</strong> A 2024 review specifically found that regular tai chi improves sleep disorders including insomnia and overall sleep quality — directly relevant to your sleep apnea management. Lower cortisol from tai chi also directly counteracts the testosterone-suppressing, muscle-wasting effects of chronic stress and poor sleep.
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+const weights = [201, 200, 198, 197, 196, 194, 193, 192, 191, 190, 189, 188, 186, 185, 184, 183, 182, 181, 180.5, 180, 180];
+const container = document.getElementById('progressBars');
+const weeks = ['Start','Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8','Wk 9','Wk 10'];
+weeks.forEach((wk, i) => {
+  const w = weights[i*2];
+  const pct = Math.round(((201 - w) / (201 - 180)) * 100);
+  const el = document.createElement('div');
+  el.className = 'progress-week';
+  el.innerHTML = `<span class="progress-week-label">${wk}</span>
+    <div class="progress-track"><div class="progress-fill" style="width: ${pct}%"></div></div>
+    <span class="progress-val">${w} lbs</span>`;
+  container.appendChild(el);
+});
+
+const cupsEl = document.getElementById('cups');
+const statusEl = document.getElementById('water-status');
+let count = 0;
+const total = 10;
+for(let i = 0; i < total; i++) {
+  const c = document.createElement('div');
+  c.className = 'cup';
+  c.onclick = function() {
+    if(this.classList.contains('filled')) {
+      this.classList.remove('filled');
+      count--;
+    } else {
+      this.classList.add('filled');
+      count++;
+    }
+    statusEl.textContent = count + ' of ' + total + ' cups today' + (count >= total ? ' — Goal reached! 💪' : '');
+  };
+  cupsEl.appendChild(c);
+}
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
